@@ -98,7 +98,7 @@ def collect_data(pages_count, pages_href):
         print(f"[INFO] Обработана страница {page + 1}/{pages_count}")
         time.sleep(2)
         
-        with open("data" + pages_href[page] + f"/page_{page}.json", "a") as file:
+        with open("data" + pages_href[page] + f"/page_{page}.json", "a", encoding="utf-8") as file:
             json.dump(data, file, indent=4, ensure_ascii=False)
 
 

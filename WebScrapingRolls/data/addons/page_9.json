@@ -1,56 +1,46 @@
 [
     {
-        "product_name": "Соус Соевый 40 мл",
+        "product_name": "РЎРѕСѓСЃ РЎРѕРµРІС‹Р№ 40 РјР»",
         "product_structure": "",
         "product_price": "30"
     },
     {
-        "product_name": "Соус Ореховый 30гр",
+        "product_name": "РЎРѕСѓСЃ РћСЂРµС…РѕРІС‹Р№ 30РіСЂ",
         "product_structure": "",
         "product_price": "30"
     },
     {
-        "product_name": "Соус Розовый 30гр",
+        "product_name": "РЎРѕСѓСЃ Р РѕР·РѕРІС‹Р№ 30РіСЂ",
         "product_structure": "",
         "product_price": "30"
     },
     {
-        "product_name": "Соус Спайси 30гр",
+        "product_name": "РЎРѕСѓСЃ РЎРїР°Р№СЃРё 30РіСЂ",
         "product_structure": "",
         "product_price": "30"
     },
     {
-        "product_name": "Соус Сырный 30гр",
+        "product_name": "РЎРѕСѓСЃ РЎС‹СЂРЅС‹Р№ 30РіСЂ",
         "product_structure": "",
         "product_price": "30"
     },
     {
-        "product_name": "Соус Терияки 30гр",
-        "product_structure": "",
-        "product_price": "30"
-    },
-    {
-        "product_name": "Соус Шрирачи 10гр",
-        "product_structure": "",
-        "product_price": "30"
-    },
-    {
-        "product_name": "Васаби 25 гр",
+        "product_name": "Р’Р°СЃР°Р±Рё 25 РіСЂ",
         "product_structure": "",
         "product_price": "20"
     },
     {
-        "product_name": "Васаби 5 гр",
+        "product_name": "Р’Р°СЃР°Р±Рё 5 РіСЂ",
         "product_structure": "",
         "product_price": "15"
     },
     {
-        "product_name": "Имбирь маринованный 100 гр",
+        "product_name": "РРјР±РёСЂСЊ РјР°СЂРёРЅРѕРІР°РЅРЅС‹Р№ 100 РіСЂ",
         "product_structure": "",
         "product_price": "40"
     },
     {
-        "product_name": "Имбирь маринованный 50 гр",
+        "product_name": "РРјР±РёСЂСЊ РјР°СЂРёРЅРѕРІР°РЅРЅС‹Р№ 50 РіСЂ",
         "product_structure": "",
         "product_price": "20"
     }
