@@ -1,0 +1,57 @@
+[
+    {
+        "product_name": "Соус Соевый 40 мл",
+        "product_structure": "",
+        "product_price": "30"
+    },
+    {
+        "product_name": "Соус Ореховый 30гр",
+        "product_structure": "",
+        "product_price": "30"
+    },
+    {
+        "product_name": "Соус Розовый 30гр",
+        "product_structure": "",
+        "product_price": "30"
+    },
+    {
+        "product_name": "Соус Спайси 30гр",
+        "product_structure": "",
+        "product_price": "30"
+    },
+    {
+        "product_name": "Соус Сырный 30гр",
+        "product_structure": "",
+        "product_price": "30"
+    },
+    {
+        "product_name": "Соус Терияки 30гр",
+        "product_structure": "",
+        "product_price": "30"
+    },
+    {
+        "product_name": "Соус Шрирачи 10гр",
+        "product_structure": "",
+        "product_price": "30"
+    },
+    {
+        "product_name": "Васаби 25 гр",
+        "product_structure": "",
+        "product_price": "20"
+    },
+    {
+        "product_name": "Васаби 5 гр",
+        "product_structure": "",
+        "product_price": "15"
+    },
+    {
+        "product_name": "Имбирь маринованный 100 гр",
+        "product_structure": "",
+        "product_price": "40"
+    },
+    {
+        "product_name": "Имбирь маринованный 50 гр",
+        "product_structure": "",
+        "product_price": "20"
+    }
+]
