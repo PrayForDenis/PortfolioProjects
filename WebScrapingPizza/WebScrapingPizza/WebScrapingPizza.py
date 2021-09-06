@@ -73,10 +73,10 @@ def collect_data(pages_count):
                     )
                 )
     
-        print(f"[INFO] Обработана страница {i}/2")
+        print(f"[INFO] Обработана страница {i}/{pages_count - 1}")
         time.sleep(2)
     
-    with open("data_pizza.json", "a") as file:
+    with open("data_pizza.json", "a", encoding="utf-8") as file:
         json.dump(data, file, indent=4, ensure_ascii=False)
 
 
