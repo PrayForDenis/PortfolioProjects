@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using Zenject;
 
 public class PlayerTower : Tower
@@ -6,6 +7,9 @@ public class PlayerTower : Tower
     private const int GunAngleSpeed = 20;
 
     private IInputService _input;
+
+    public event UnityAction TimerFinished;
+    public event UnityAction<float> TimeUpdated;    
 
     [Inject]
     private void Construct(IInputService input)
@@ -30,6 +34,31 @@ public class PlayerTower : Tower
         _input.Shooted -= OnPressShooted;    
     }
 
+    protected override void Awake()
+    {
+        base.Awake();
+        Shield.TimeUpdated += OnTimeUpdated;
+    }
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        Shield.TimeUpdated -= OnTimeUpdated; 
+    }
+
+    protected override void ResetBoost()
+    {
+        base.ResetBoost();
+        TimerFinished?.Invoke();
+        TimeUpdated?.Invoke(0f);
+    }
+
+    protected override void OnTimerFinished()
+    {
+        Shield.gameObject.SetActive(false);
+        TimerFinished?.Invoke();
+    }
+
     private void OnPressShooted()
     {
         if (ElapsedTime >= RechargeTime)
@@ -39,4 +68,8 @@ public class PlayerTower : Tower
         }
     }
 
+    private void OnTimeUpdated(float seconds)
+    {
+        TimeUpdated?.Invoke(seconds);
+    }
 }

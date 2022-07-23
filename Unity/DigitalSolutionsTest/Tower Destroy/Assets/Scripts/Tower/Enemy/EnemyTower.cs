@@ -14,10 +14,11 @@ public class EnemyTower : Tower
     [SerializeField] private float _boostDelay;
 
     private float _delayTime;
+    private Coroutine _gunRotation;
 
     private void Start() 
     {
-        StartCoroutine(RotateGun());    
+        _gunRotation = StartCoroutine(RotateGun());    
     }
 
     private void Update() 
@@ -37,6 +38,23 @@ public class EnemyTower : Tower
             ActiveBoost();
             _delayTime = 0;
         }
+    }
+
+    public void EnableGunRotation() 
+    {
+        if (_gunRotation == null)
+            _gunRotation = StartCoroutine(RotateGun());
+    }
+
+    public override void Reset()
+    {
+        StopCoroutine(_gunRotation);
+        base.Reset();
+    }
+
+    protected override void OnTimerFinished()
+    {
+        Shield.gameObject.SetActive(false);
     }
 
     private IEnumerator RotateGun()

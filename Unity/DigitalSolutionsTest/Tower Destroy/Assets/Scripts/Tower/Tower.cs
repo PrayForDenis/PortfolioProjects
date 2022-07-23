@@ -4,36 +4,17 @@ using UnityEngine.Events;
 public abstract class Tower : MonoBehaviour
 {
     [SerializeField] private int _health;
-    [SerializeField] private Shield _shield;
+    [SerializeField] protected Shield Shield;
     [SerializeField] protected Gun Gun;
     [SerializeField] protected float RechargeTime;
 
     private int _currentHealth;
 
     protected float ElapsedTime;
-    protected Coroutine _shieldTimer;
+    protected Coroutine ShieldTimer;
 
-    public event UnityAction Died;
     public event UnityAction<int, int> HealthChanged;
-    public event UnityAction TimerFinished;
-    public event UnityAction<float> TimeUpdated;
-
-    private void Awake() 
-    {
-        _shield.ShieldDestroyed += OnShieldDestroyed;
-        _shield.TimerFinished += OnTimerFinished;
-        _shield.TimeUpdated += OnTimeUpdated;
-
-        _currentHealth = _health;  
-        HealthChanged?.Invoke(_currentHealth, _health);           
-    }
-
-    private void OnDestroy() 
-    {
-        _shield.ShieldDestroyed -= OnShieldDestroyed;
-        _shield.TimerFinished -= OnTimerFinished;
-        _shield.TimeUpdated -= OnTimeUpdated;    
-    }
+    public event UnityAction Died;
 
     public void ApplyDamage(int damage)
     {
@@ -44,45 +25,49 @@ public abstract class Tower : MonoBehaviour
             Died?.Invoke();
     }
 
-    public void Reset()
+    public void ActiveBoost()
+    {
+        Shield.gameObject.SetActive(true);
+        ShieldTimer = StartCoroutine(Shield.StartShieldTimer());
+    }
+
+    public virtual void Reset()
     {
         _currentHealth = _health;
         HealthChanged?.Invoke(_currentHealth, _health); 
         ElapsedTime = 0;   
         
-        if (_shieldTimer != null)
+        if (ShieldTimer != null)
             ResetBoost();
 
         Gun.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
-    public void ActiveBoost()
+    protected abstract void OnTimerFinished();
+    
+    protected virtual void Awake() 
     {
-        _shield.gameObject.SetActive(true);
-        _shieldTimer = StartCoroutine(_shield.StartShieldTimer());
+        Shield.ShieldDestroyed += OnShieldDestroyed;
+        Shield.TimerFinished += OnTimerFinished;
+
+        _currentHealth = _health;  
+        HealthChanged?.Invoke(_currentHealth, _health);           
     }
 
-    protected void ResetBoost()
+    protected virtual void OnDestroy() 
     {
-        StopCoroutine(_shieldTimer);
-        TimerFinished?.Invoke();
-        TimeUpdated?.Invoke(0f);
-        _shield.gameObject.SetActive(false);
+        Shield.ShieldDestroyed -= OnShieldDestroyed;
+        Shield.TimerFinished -= OnTimerFinished;   
+    }
+
+    protected virtual void ResetBoost()
+    {
+        StopCoroutine(ShieldTimer);
+        Shield.gameObject.SetActive(false);
     }
 
     private void OnShieldDestroyed()
     {
-        _shield.gameObject.SetActive(false);
-    }
-
-    private void OnTimerFinished()
-    {
-        _shield.gameObject.SetActive(false);
-        TimerFinished?.Invoke();
-    }
-
-    private void OnTimeUpdated(float seconds)
-    {
-        TimeUpdated?.Invoke(seconds);
+        Shield.gameObject.SetActive(false);
     }
 }

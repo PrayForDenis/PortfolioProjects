@@ -24,6 +24,8 @@ public class GameState : IState
         _input.Enable();
         _hud.Open();
 
+        _enemyTower.EnableGunRotation();
+
         RegisterEvents();
     }
 
