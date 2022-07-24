@@ -1018,7 +1018,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -7.089965, y: 415.92798}
+  m_Offset: {x: -10.755033, y: 415.92798}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1029,7 +1029,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.544916, y: 793.6929}
+  m_Size: {x: 0.9624882, y: 793.6929}
   m_EdgeRadius: 0
 --- !u!114 &616089590
 MonoBehaviour:
@@ -2165,7 +2165,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 7.6007257, y: -396.77682}
+  m_Offset: {x: 10.866314, y: -396.77682}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2176,7 +2176,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.266221, y: 793.6148}
+  m_Size: {x: 0.98604774, y: 793.6148}
   m_EdgeRadius: 0
 --- !u!114 &928239714
 MonoBehaviour:
@@ -2747,7 +2747,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 7.089965, y: 415.94742}
+  m_Offset: {x: 10.810018, y: 415.94742}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2758,7 +2758,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.544916, y: 793.654}
+  m_Size: {x: 1.1048107, y: 793.654}
   m_EdgeRadius: 0
 --- !u!114 &1503878721
 MonoBehaviour:
@@ -4353,7 +4353,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -7.600726, y: -396.77682}
+  m_Offset: {x: -10.857708, y: -396.77682}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -4364,7 +4364,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.266221, y: 793.6148}
+  m_Size: {x: 1.104811, y: 793.6148}
   m_EdgeRadius: 0
 --- !u!114 &2124982401
 MonoBehaviour:
