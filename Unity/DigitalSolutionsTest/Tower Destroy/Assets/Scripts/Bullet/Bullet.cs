@@ -20,5 +20,9 @@ public class Bullet : MonoBehaviour
             shield.ApplyDamage();
             Destroy(gameObject);
         }
+        else if (other.collider.TryGetComponent(out ShieldBackSide backSide))
+        {
+            Destroy(gameObject);
+        }
     }
 }
