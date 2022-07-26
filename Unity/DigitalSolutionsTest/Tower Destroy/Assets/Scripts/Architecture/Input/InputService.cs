@@ -2,7 +2,7 @@ using System;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
-public class InputService : IInputService, IDisposable
+public class InputService : IInputService
 {
     private Inputs _input;
 
@@ -13,11 +13,6 @@ public class InputService : IInputService, IDisposable
     public InputService()
     {
         _input = new Inputs();
-    }
-
-    public void Dispose()
-    {
-        Disable();
     }
 
     public void Enable()

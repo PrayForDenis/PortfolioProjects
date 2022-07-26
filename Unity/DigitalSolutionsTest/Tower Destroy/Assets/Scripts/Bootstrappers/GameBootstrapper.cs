@@ -33,7 +33,7 @@ public class GameBootstrapper : MonoInstaller
 
     private void OnDestroy() 
     {
-        (_inputService as IDisposable).Dispose();
+        _inputService.Disable();
     }
 
     private T BindInstanceSingle<T>(T instance)
