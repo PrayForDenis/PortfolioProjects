@@ -2034,9 +2034,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecd86fc8657289448cbf029f251b49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletTemplate: {fileID: 2220714563469162244, guid: 5a5ddd3a6ec596842a0a0a208c20d651, type: 3}
-  _shootPoint: {fileID: 1191995899}
   _bulletSpeed: 10
+  _template: {fileID: 2220714563469162244, guid: 5a5ddd3a6ec596842a0a0a208c20d651, type: 3}
+  _shootPoint: {fileID: 1191995899}
 --- !u!1 &897971890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,9 +2477,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ecd86fc8657289448cbf029f251b49d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletTemplate: {fileID: 2220714563469162244, guid: 5a5ddd3a6ec596842a0a0a208c20d651, type: 3}
-  _shootPoint: {fileID: 1623245834}
   _bulletSpeed: 10
+  _template: {fileID: 2220714563469162244, guid: 5a5ddd3a6ec596842a0a0a208c20d651, type: 3}
+  _shootPoint: {fileID: 1623245834}
 --- !u!1 &1191995898
 GameObject:
   m_ObjectHideFlags: 0
@@ -3630,7 +3630,7 @@ MonoBehaviour:
   Shield: {fileID: 1503878721}
   Gun: {fileID: 1028634387}
   RechargeTime: 2.5
-  _shotDelay: {x: 0.2, y: 0.5}
+  _shotDelay: {x: 0.5, y: 1.5}
   _boostDelay: 20
 --- !u!1 &1798921356
 GameObject:

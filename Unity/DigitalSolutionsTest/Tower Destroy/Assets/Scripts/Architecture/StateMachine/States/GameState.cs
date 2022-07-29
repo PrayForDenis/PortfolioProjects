@@ -1,11 +1,11 @@
 public class GameState : IState
 {
-    private GameStateMachine _gameStateMachine;
-    private IInputService _input;
-    private Game _game;
-    private PlayerTower _playerTower; 
-    private EnemyTower _enemyTower;
-    private HUD _hud;
+    private readonly GameStateMachine _gameStateMachine;
+    private readonly IInputService _input;
+    private readonly Game _game;
+    private readonly PlayerTower _playerTower; 
+    private readonly EnemyTower _enemyTower;
+    private readonly HUD _hud;
 
     public GameState(GameStateMachine stateMachine, 
                     IInputService input, Game game,
@@ -23,8 +23,6 @@ public class GameState : IState
     {
         _input.Enable();
         _hud.Open();
-
-        _enemyTower.EnableGunRotation();
 
         RegisterEvents();
     }

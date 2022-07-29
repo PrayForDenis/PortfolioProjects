@@ -1,7 +1,7 @@
 public class Game
 {
-    private EnemyTower _enemyTower;
-    private PlayerTower _playerTower;
+    private readonly EnemyTower _enemyTower;
+    private readonly PlayerTower _playerTower;
 
     public GameStateMachine StateMachine;
 

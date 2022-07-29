@@ -31,7 +31,7 @@ public abstract class Tower : MonoBehaviour
         ShieldTimer = StartCoroutine(Shield.StartShieldTimer());
     }
 
-    public virtual void Reset()
+    public void Reset()
     {
         _currentHealth = _health;
         HealthChanged?.Invoke(_currentHealth, _health); 

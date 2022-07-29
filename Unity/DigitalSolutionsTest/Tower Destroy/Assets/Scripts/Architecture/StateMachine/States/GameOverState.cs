@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class GameOverState : IState
 {
-    private GameStateMachine _gameStateMachine;
-    private IInputService _input;
-    private Game _game;
-    private GameOverScreen _gameOverScreen;
-    private HUD _hud;
+    private readonly GameStateMachine _gameStateMachine;
+    private readonly IInputService _input;
+    private readonly Game _game;
+    private readonly GameOverScreen _gameOverScreen;
+    private readonly HUD _hud;
 
     public GameOverState(GameStateMachine stateMachine, IInputService input, 
                         Game game, GameOverScreen gameOverScreen, HUD hud)

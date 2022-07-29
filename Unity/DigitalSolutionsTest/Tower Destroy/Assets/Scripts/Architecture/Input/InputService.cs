@@ -1,10 +1,9 @@
-using System;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class InputService : IInputService
 {
-    private Inputs _input;
+    private readonly Inputs _input;
 
     public float DeltaY => _input.Player.RotateGun.ReadValue<float>();
 

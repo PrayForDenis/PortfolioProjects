@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyTower : Tower
 {
@@ -15,41 +16,33 @@ public class EnemyTower : Tower
 
     private float _delayTime;
     private Coroutine _gunRotation;
-
-    private void Start() 
-    {
-        _gunRotation = StartCoroutine(RotateGun());    
-    }
+    private List<EnemyLogic> _actions;
 
     private void Update() 
     {
-        ElapsedTime += Time.deltaTime;
-
-        if (ElapsedTime >= RechargeTime + Random.Range(_shotDelay.x, _shotDelay.y))
+        foreach(var action in _actions)
         {
-            Gun.Shoot();
-            ElapsedTime = 0;
-        }
-
-        _delayTime += Time.deltaTime;
-
-        if (_delayTime >= Random.Range(_boostDelay - 3f, _boostDelay))
-        {
-            ActiveBoost();
-            _delayTime = 0;
+            action.TryExecuteAction();
         }
     }
 
-    public void EnableGunRotation() 
+    protected override void Awake()
     {
-        if (_gunRotation == null)
-            _gunRotation = StartCoroutine(RotateGun());
+        base.Awake();
+
+        _actions = new List<EnemyLogic>
+        {
+            new ShootLogic(Gun.Shoot, _shotDelay, RechargeTime),
+            new ActiveBoostLogic(ActiveBoost, _boostDelay)
+        };
+
+        _gunRotation = StartCoroutine(RotateGun());
     }
 
-    public override void Reset()
+    protected override void OnDestroy()
     {
+        base.OnDestroy();
         StopCoroutine(_gunRotation);
-        base.Reset();
     }
 
     protected override void OnTimerFinished()

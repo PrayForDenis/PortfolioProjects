@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class PauseState : IState
 {
-    private GameStateMachine _gameStateMachine;
-    private IInputService _input;
-    private Game _game;
-    private PauseScreen _pauseScreen;
-    private HUD _hud;
+    private readonly GameStateMachine _gameStateMachine;
+    private readonly IInputService _input;
+    private readonly Game _game;
+    private readonly PauseScreen _pauseScreen;
+    private readonly HUD _hud;
 
     public PauseState(GameStateMachine stateMachine, IInputService input, 
                     Game game, PauseScreen pauseScreen, HUD hud)

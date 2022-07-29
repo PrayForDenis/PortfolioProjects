@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class GameStateMachine
 {
-    private Dictionary<Type, IState> _states;
+    private readonly Dictionary<Type, IState> _states;
     private IState _currentState;
 
     public GameStateMachine(IInputService input, Game game, PlayerTower playerTower, 
