@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class ShootLogic : EnemyLogic
 {
-    private Vector2 _shotDelay;
-    private float _rechargeTime;
+    private readonly Vector2 _shotDelay;
+    private readonly float _rechargeTime;
 
     public ShootLogic(Action action, Vector2 shotDelay, float rechargeTime) : base(action)
     {

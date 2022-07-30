@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IHitVisitor, IHitable
 {
     [SerializeField] private int _damage;
 
@@ -15,24 +15,37 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) 
     {
-        if (other.collider.TryGetComponent(out Tower tower))
+        if (other.collider.TryGetComponent(out IHitable hitable))
         {
-            tower.ApplyDamage(_damage);
-            InstantiateEffect(_explosionEffect, transform.position);
-        }
-        else if (other.collider.TryGetComponent(out Bullet bullet))
-        {
-            InstantiateEffect(_explosionEffect, transform.position);
-        }
-        else if (other.collider.TryGetComponent(out Shield shield))
-        {
-            shield.ApplyDamage();
-            InstantiateEffect(_shieldEffect, transform.position);
-        }
-        else if (other.collider.TryGetComponent(out ShieldBackSide backSide))
-        {
-            InstantiateEffect(_shieldEffect, transform.position);
-        }
+            hitable.Accept(this);
+        }    
+    }
+
+    public void Accept(IHitVisitor hitVisitor)
+    {
+        hitVisitor.Visit(this);
+    }
+
+    public void Visit(Tower tower)
+    {
+        tower.ApplyDamage(_damage);
+        InstantiateEffect(_explosionEffect, transform.position);
+    }
+
+    public void Visit(Bullet bullet)
+    {
+        InstantiateEffect(_explosionEffect, transform.position);
+    }
+
+    public void Visit(Shield shield)
+    {
+        shield.ApplyDamage();
+        InstantiateEffect(_shieldEffect, transform.position);
+    }
+
+    public void Visit(ShieldBackSide shieldBackSide)
+    {
+        InstantiateEffect(_shieldEffect, transform.position);
     }
 
     private void InstantiateEffect(Effect effect, Vector3 at)

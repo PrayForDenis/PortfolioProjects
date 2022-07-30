@@ -22,7 +22,7 @@ public class EnemyTower : Tower
     {
         foreach(var action in _actions)
         {
-            action.TryExecuteAction();
+            action.TryExecuteAction(Time.deltaTime);
         }
     }
 
@@ -43,11 +43,6 @@ public class EnemyTower : Tower
     {
         base.OnDestroy();
         StopCoroutine(_gunRotation);
-    }
-
-    protected override void OnTimerFinished()
-    {
-        Shield.gameObject.SetActive(false);
     }
 
     private IEnumerator RotateGun()

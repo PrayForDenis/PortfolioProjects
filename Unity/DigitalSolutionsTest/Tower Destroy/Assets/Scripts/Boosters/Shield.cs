@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Shield : MonoBehaviour
+public class Shield : MonoBehaviour, IHitable
 {
     [SerializeField] private int _health;
     [SerializeField] private float _duration;
@@ -24,6 +24,11 @@ public class Shield : MonoBehaviour
         _currentHealth = _health;
         _timeLeft = _duration;
         TimeUpdated?.Invoke(_timeLeft % 60);        
+    }
+
+    public void Accept(IHitVisitor hitVisitor)
+    {
+        hitVisitor.Visit(this);
     }
 
     public void ApplyDamage()

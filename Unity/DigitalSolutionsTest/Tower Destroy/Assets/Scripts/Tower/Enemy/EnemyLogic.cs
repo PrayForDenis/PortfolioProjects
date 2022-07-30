@@ -1,5 +1,4 @@
 using System;
-using UnityEngine;
 
 public abstract class EnemyLogic
 {
@@ -11,9 +10,9 @@ public abstract class EnemyLogic
         _action = action;
     } 
 
-    public void TryExecuteAction() 
+    public void TryExecuteAction(float delta) 
     {
-        _elapsedTime += Time.deltaTime;
+        _elapsedTime += delta;
 
         if (_elapsedTime > GetCooldown())
         {

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public abstract class Tower : MonoBehaviour
+public abstract class Tower : MonoBehaviour, IHitable
 {
     [SerializeField] private int _health;
     [SerializeField] protected Shield Shield;
@@ -16,13 +16,22 @@ public abstract class Tower : MonoBehaviour
     public event UnityAction<int, int> HealthChanged;
     public event UnityAction Died;
 
+    public void Accept(IHitVisitor hitVisitor)
+    {
+        hitVisitor.Visit(this);
+    }
+
     public void ApplyDamage(int damage)
     {
         _currentHealth -= damage;
-        HealthChanged?.Invoke(_currentHealth, _health);
 
         if (_currentHealth <= 0)
+        {
+            _currentHealth = 0;
             Died?.Invoke();
+        }
+ 
+        HealthChanged?.Invoke(_currentHealth, _health);
     }
 
     public void ActiveBoost()
@@ -42,9 +51,7 @@ public abstract class Tower : MonoBehaviour
 
         Gun.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
-
-    protected abstract void OnTimerFinished();
-    
+ 
     protected virtual void Awake() 
     {
         Shield.ShieldDestroyed += OnShieldDestroyed;
@@ -66,6 +73,11 @@ public abstract class Tower : MonoBehaviour
         Shield.gameObject.SetActive(false);
     }
 
+    protected virtual void OnTimerFinished() 
+    {
+        Shield.gameObject.SetActive(false);
+    }
+    
     private void OnShieldDestroyed()
     {
         Shield.gameObject.SetActive(false);

@@ -55,7 +55,7 @@ public class PlayerTower : Tower
 
     protected override void OnTimerFinished()
     {
-        Shield.gameObject.SetActive(false);
+        base.OnTimerFinished();
         TimerFinished?.Invoke();
     }
 
